@@ -1,0 +1,52 @@
+{
+    "name": "datatables.net-staterestore-bs4",
+    "description": "StateRestore for DataTables with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)",
+    "main": "js/stateRestore.bootstrap4.js",
+    "style": "css/stateRestore.bootstrap4.css",
+    "types": "./types/stateRestore.bootstrap4.d.ts",
+    "version": "null",
+    "files": [
+        "css/**/*.css",
+        "js/**/*.js",
+        "types/**/*.d.ts"
+    ],
+    "keywords": [
+        "StateRestore",
+ "stateSave",
+ "state",
+"reload",
+        "Bootstrap",
+ "Bootstrap4",
+        "Datatables",
+        "jQuery",
+        "table",
+        "filter",
+        "sort"
+    ],
+    "dependencies": {
+        "datatables.net-staterestore": ">=null",
+        "datatables.net-bs4": ">=1.11.3",
+        "jquery": ">=1.7"
+    },
+    "moduleType": [
+        "globals",
+        "amd",
+        "node"
+    ],
+    "ignore": [
+        "composer.json",
+        "datatables.json",
+        "package.json"
+    ],
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DataTables/Dist-DataTables-StateRestore-Bootstrap4.git"
+    }
+}
