@@ -4,7 +4,7 @@
     "main": "js/stateRestore.bootstrap4.js",
     "style": "css/stateRestore.bootstrap4.css",
     "types": "./types/stateRestore.bootstrap4.d.ts",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "files": [
         "css/**/*.css",
         "js/**/*.js",
