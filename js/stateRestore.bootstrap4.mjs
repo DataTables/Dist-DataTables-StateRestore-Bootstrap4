@@ -6,7 +6,6 @@ import $ from 'jquery';
 import DataTable from 'datatables.net-bs4';
 import StateRestore from 'datatables.net-staterestore';
 
-
 $.extend(true, DataTable.StateRestoreCollection.classes, {
     checkBox: 'dtsr-check-box form-check-input',
     creationButton: 'dtsr-creation-button btn btn-secondary',
