@@ -10,7 +10,7 @@ import StateRestore from 'datatables.net-staterestore';
 let $ = jQuery;
 
 $.extend(true, DataTable.StateRestoreCollection.classes, {
-    checkBox: 'dtsr-check-box form-check-input',
+    checkBox: 'dtsr-check-box',
     creationButton: 'dtsr-creation-button btn btn-secondary',
     creationForm: 'dtsr-creation-form modal-body',
     creationText: 'dtsr-creation-text modal-header',
