@@ -6,9 +6,13 @@ import DataTable from 'datatables.net-bs4';
 import StateRestore from 'datatables.net-staterestore';
 
 let bsModal;
+let modalEl;
 const StateRestore = DataTable.StateRestore;
-const domEls = {
-    modal: Dom.c('div')
+function assertModal() {
+    if (modalEl) {
+        return;
+    }
+    modalEl = Dom.c('div')
         .classAdd('modal fade dtsr-modal')
         .append(Dom.c('div')
         .classAdd('modal-dialog modal-dialog-centered')
@@ -26,52 +30,55 @@ const domEls = {
         .append(Dom.c('span')
         .attr('aria-hidden', 'true')
         .html('&times;'))))
-        .append(Dom.c('div').classAdd('modal-body'))))
-};
+        .append(Dom.c('div').classAdd('modal-body'))));
+}
 /*
  * Bootstrap modal for StateRestore.
  */
 StateRestore.modal = function (title, content, className, closeCb) {
+    assertModal();
     let $ = DataTable.use('jq');
     if (!bsModal) {
-        bsModal = $(domEls.modal.get(0)).modal({
+        bsModal = $(modalEl.get(0)).modal({
             backdrop: 'static',
             keyboard: false,
             show: false
         });
     }
-    let header = domEls.modal.find('div.modal-header h5');
-    let body = domEls.modal.find('div.modal-body');
-    let close = domEls.modal.find('button.close');
+    let header = modalEl.find('div.modal-header h5');
+    let body = modalEl.find('div.modal-body');
+    let close = modalEl.find('button.close');
     // Display the content
     header.text(title);
     body.append(content);
-    domEls.modal.find('div.modal-dialog').classAdd(className);
+    modalEl.find('div.modal-dialog').classAdd(className);
     // Close event handler
     close.on('click.dtsr', () => {
         closeCb();
     });
-    domEls.modal.on('click.dtsr', e => {
+    modalEl.on('click.dtsr', e => {
         if (Dom.s(e.target).classHas('modal')) {
             closeCb();
         }
     });
-    domEls.modal.appendTo('body');
+    modalEl.appendTo('body');
     bsModal.modal('show');
 };
 StateRestore.modalClean = function () {
-    let header = domEls.modal.find('div.modal-header h5');
-    let body = domEls.modal.find('div.modal-body');
-    let close = domEls.modal.find('button.close');
+    assertModal();
+    let header = modalEl.find('div.modal-header h5');
+    let body = modalEl.find('div.modal-body');
+    let close = modalEl.find('button.close');
     header.text('');
     body.empty();
-    domEls.modal
+    modalEl
         .find('div.modal-dialog')
         .classRemove(StateRestore.classes.modal.table);
     close.off('.dtsr');
-    domEls.modal.off('.dtsr');
+    modalEl.off('.dtsr');
 };
 StateRestore.modalClose = function () {
+    assertModal();
     if (bsModal) {
         bsModal.modal('hide');
     }
