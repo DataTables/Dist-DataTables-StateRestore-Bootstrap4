@@ -5,7 +5,7 @@
     "module": "js/stateRestore.bootstrap4.mjs",
     "style": "css/stateRestore.bootstrap4.css",
     "types": "./types/stateRestore.bootstrap4.d.ts",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "files": [
         "css/**/*.css",
         "js/**/*.js",
@@ -25,7 +25,7 @@
         "sort"
     ],
     "dependencies": {
-        "datatables.net-staterestore": "2.0.0",
+        "datatables.net-staterestore": "2.0.1",
         "datatables.net-bs4": "^3"
     },
     "author": {
